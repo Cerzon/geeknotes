@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'usersapp.apps.UsersappConfig',
 ]
 
 MIDDLEWARE = [
@@ -93,6 +95,11 @@ DATABASES = {
         'OPTIONS': literal_eval(CONF_PARSER.get('db', 'OPTIONS', fallback='{}')),
     }
 }
+
+
+# Custom user model
+
+AUTH_USER_MODEL = 'usersapp.GeekUser'
 
 
 # Password validation
