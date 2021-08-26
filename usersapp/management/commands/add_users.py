@@ -23,12 +23,11 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options['super']:
             GeekUser.objects.filter(is_superuser=True).delete()
-            su = GeekUser.objects.create_superuser(
+            GeekUser.objects.create_superuser(
                 username='django',
                 email='admin@local.host',
+                password='geekbrains',
             )
-            su.set_password('geekbrains')
-            su.save()
         if options['count']:
             user_data = geek_user_generator()
             GeekUser.objects.bulk_create([
