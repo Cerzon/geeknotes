@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'usersapp',
+    'usersapp.apps.UsersappConfig',
+    'notesapp.apps.NotesappConfig',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,13 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
 ]
+
+
+# REST framework renderers
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}

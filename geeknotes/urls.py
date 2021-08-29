@@ -18,10 +18,13 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from usersapp import views as usersapp
+from notesapp import views as notesapp
 
 
 router = DefaultRouter()
 router.register('users', usersapp.GeekUserModelViewSet)
+router.register('projects', notesapp.ProjectModelViewSet)
+router.register('notes', notesapp.NoteModelViewSet)
 
 
 urlpatterns = [
