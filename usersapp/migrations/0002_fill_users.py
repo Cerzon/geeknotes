@@ -11,7 +11,7 @@ def forwards_func(apps, schema_editor):
     db_alias = schema_editor.connection.alias
     user_data = geek_user_generator()
     GeekUser.objects.using(db_alias).bulk_create([
-        GeekUser(**next(user_data)) for _ in range(5)
+        GeekUser(**next(user_data)) for _ in range(10)
     ])
 
 
