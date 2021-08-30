@@ -11,7 +11,6 @@ const UserItem = ({ user }) => {
 
 
 const UserList = ({ users }) => {
-    const usersElements = users.map( user => <UserItem user={ user }/> );
     return (
         <table>
             <tr>
@@ -20,7 +19,7 @@ const UserList = ({ users }) => {
                 <th>Last name</th>
                 <th>E-mail</th>
             </tr>
-            { usersElements }
+            { users.map( user => <UserItem user={ user }/> ) }
         </table>
     )
 }

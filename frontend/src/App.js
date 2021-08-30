@@ -13,7 +13,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        get('users/').then( users => this.setState({ users }));
+        get('users/').then( users => this.setState({ users: users }));
     }
 
     render() {

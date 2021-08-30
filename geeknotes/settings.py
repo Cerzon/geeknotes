@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'usersapp.apps.UsersappConfig',
-    'notesapp.apps.NotesappConfig',
+    'usersapp',
+    'notesapp',
 ]
 
 MIDDLEWARE = [
@@ -89,13 +89,8 @@ WSGI_APPLICATION = 'geeknotes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': CONF_PARSER.get('db', 'ENGINE', fallback='django.db.backends.sqlite3'),
-        'NAME': CONF_PARSER.get('db', 'NAME', fallback=BASE_DIR / 'db.sqlite3'),
-        'USER': CONF_PARSER.get('db', 'USER', fallback=''),
-        'PASSWORD': CONF_PARSER.get('db', 'PASSWORD', fallback=''),
-        'HOST': CONF_PARSER.get('db', 'HOST', fallback=''),
-        'PORT': CONF_PARSER.get('db', 'PORT', fallback=''),
-        'OPTIONS': literal_eval(CONF_PARSER.get('db', 'OPTIONS', fallback='{}')),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
