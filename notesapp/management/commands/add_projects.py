@@ -1,4 +1,4 @@
-from random import choice, randint
+from random import choices, randint
 from django.core.management.base import BaseCommand
 
 from notesapp.models import Project
@@ -24,7 +24,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options['count']:
             Project.objects.bulk_create([
-                Project(name=choice(NAMES)) for _ in range(options['count'])
+                Project(name=' '.join(choices(NAMES, k=randint(1, 4))).capitalize())
+                for _ in range(options['count'])
             ])
             for project in Project.objects.all():
                 for user in GeekUser.objects.exclude(is_superuser=True).order_by('?')[:randint(1, 5)]:
