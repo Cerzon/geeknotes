@@ -1,4 +1,4 @@
-export const UserItem = ({ item }) => {
+const UserItem = ({ item }) => {
     return (
         <tr>
             <td>{ item.username }</td>
