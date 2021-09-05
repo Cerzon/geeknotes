@@ -26,3 +26,7 @@ class NoteModelViewSet(ModelViewSet):
     serializer_class = NoteModelSerializer
     pagination_class = NotePageNumberPagination
     filterset_class = NoteInstancesFilter
+
+    def perform_destroy(self, instance):
+        instance.is_active = False
+        instance.save()

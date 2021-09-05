@@ -1,12 +1,11 @@
-from rest_framework.serializers import (HyperlinkedModelSerializer,
-                                        StringRelatedField,
-                                        HyperlinkedRelatedField)
+from rest_framework.serializers import (ModelSerializer,
+                                        StringRelatedField)
 
 from usersapp.serializers import GeekUserModelSerializer
 from .models import Project, Note
 
 
-class ProjectModelSerializer(HyperlinkedModelSerializer):
+class ProjectModelSerializer(ModelSerializer):
     users = StringRelatedField(many=True)
 
     class Meta:
@@ -14,11 +13,7 @@ class ProjectModelSerializer(HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class NoteModelSerializer(HyperlinkedModelSerializer):
-    project = HyperlinkedRelatedField(
-        read_only=True,
-        view_name='project-detail',
-    )
+class NoteModelSerializer(ModelSerializer):
     author = GeekUserModelSerializer()
 
     class Meta:

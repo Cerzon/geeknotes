@@ -24,7 +24,3 @@ class Note(models.Model):
 
     def __str__(self):
         return f'ToDo in {self.project} from {self.author}'
-
-    def delete(self):
-        self.is_active = False
-        self.save()

@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.menu-item-link {
+  display: inline-block;
+  margin: .5em 1.5em;
+}
+
+svg {
+  width: 1.5em;
+}
