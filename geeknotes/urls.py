@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views as authtoken
+from rest_framework_simplejwt import views as simplejwt
 
 from usersapp import views as usersapp
 from notesapp import views as notesapp
@@ -30,4 +32,8 @@ router.register('notes', notesapp.NoteModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api-token-auth/', authtoken.obtain_auth_token),
+    path('api-jwt/', simplejwt.TokenObtainPairView.as_view()),
+    path('api-jwt/refresh/', simplejwt.TokenRefreshView.as_view()),
+    path('api-jwt/verify/', simplejwt.TokenVerifyView.as_view()),
 ]
