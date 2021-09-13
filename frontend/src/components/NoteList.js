@@ -28,7 +28,8 @@ const NoteItem = ({ item, project }) => {
 
 const NoteList = ({ notes, projects }) => {
     return (
-        <table>
+        notes.length
+        ? <table>
             <thead>
                 <tr>
                     <th>Project</th>
@@ -49,6 +50,7 @@ const NoteList = ({ notes, projects }) => {
                 }
             </tbody>
         </table>
+        : <h2>no data</h2>
     )
 }
 
