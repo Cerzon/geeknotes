@@ -32,8 +32,8 @@ router.register('notes', notesapp.NoteModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api-token-auth/', authtoken.obtain_auth_token),
-    path('api-jwt/', simplejwt.TokenObtainPairView.as_view()),
-    path('api-jwt/refresh/', simplejwt.TokenRefreshView.as_view()),
-    path('api-jwt/verify/', simplejwt.TokenVerifyView.as_view()),
+    path('api/token-auth/', authtoken.obtain_auth_token),
+    path('api/jwt/', simplejwt.TokenObtainPairView.as_view()),
+    path('api/jwt/refresh/', simplejwt.TokenRefreshView.as_view()),
+    path('api/jwt/verify/', simplejwt.TokenVerifyView.as_view()),
 ]

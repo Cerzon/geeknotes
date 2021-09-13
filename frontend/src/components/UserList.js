@@ -12,7 +12,8 @@ const UserItem = ({ item }) => {
 
 const UserList = ({ users }) => {
     return (
-        <table>
+        users.length
+        ? <table>
             <thead>
                 <tr>
                     <th>Username</th>
@@ -25,6 +26,7 @@ const UserList = ({ users }) => {
                 { users.map( user => <UserItem key={ user.username } item={ user }/> ) }
             </tbody>
         </table>
+        : <h2>no data</h2>
     )
 }
 

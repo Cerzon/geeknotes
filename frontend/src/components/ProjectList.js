@@ -15,7 +15,8 @@ const ProjectItem = ({ item }) => {
 
 const ProjectList = ({ projects }) => {
     return (
-        <table>
+        projects.length
+        ? <table>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -28,6 +29,7 @@ const ProjectList = ({ projects }) => {
                 { projects.map( project => <ProjectItem key={ project.id } item={ project }/> ) }
             </tbody>
         </table>
+        : <h2>no data</h2>
     )
 }
 

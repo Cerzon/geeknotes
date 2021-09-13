@@ -45,3 +45,8 @@
 svg {
   width: 1.5em;
 }
+
+label, input {
+  display: inline-block;
+  margin: .2em .5em;
+}
