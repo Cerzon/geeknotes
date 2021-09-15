@@ -10,6 +10,9 @@ class Project(models.Model):
     repo_url = models.URLField(_('link to repo'), max_length=250, blank=True)
     users = models.ManyToManyField(GeekUser, related_name='projects')
 
+    class Meta:
+        ordering = ('pk',)
+
     def __str__(self):
         return f'{self.name}'
 
@@ -21,6 +24,9 @@ class Note(models.Model):
     updated = models.DateTimeField(_('updated'), auto_now=True)
     is_active = models.BooleanField(_('is active'), default=True)
     body = models.TextField(_('text'))
+
+    class Meta:
+        ordering = ('pk',)
 
     def __str__(self):
         return f'ToDo in {self.project} from {self.author}'

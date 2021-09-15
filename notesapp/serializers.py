@@ -5,17 +5,22 @@ from usersapp.serializers import GeekUserModelSerializer
 from .models import Project, Note
 
 
-class ProjectModelSerializer(ModelSerializer):
-    users = StringRelatedField(many=True)
-
+class ProjectModelSerializerBase(ModelSerializer):
     class Meta:
         model = Project
         fields = '__all__'
 
 
-class NoteModelSerializer(ModelSerializer):
-    author = GeekUserModelSerializer()
+class ProjectModelSerializer(ProjectModelSerializerBase):
+    users = StringRelatedField(many=True)
 
+
+class NoteModelSerializerBase(ModelSerializer):
     class Meta:
         model = Note
         fields = '__all__'
+
+
+class NoteModelSerializer(NoteModelSerializerBase):
+    author = GeekUserModelSerializer()
+
