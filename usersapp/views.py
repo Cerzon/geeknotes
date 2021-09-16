@@ -3,7 +3,7 @@ from rest_framework.mixins import (ListModelMixin, RetrieveModelMixin,
                                     UpdateModelMixin)
 
 from .models import GeekUser
-from .serializers import GeekUserModelSerializer
+from .serializers import GeekUserModelSerializer, GeekUserModelSerializerV02
 
 
 class GeekUserModelViewSet(
@@ -13,4 +13,8 @@ class GeekUserModelViewSet(
     GenericViewSet,
 ):
     queryset = GeekUser.objects.all()
-    serializer_class = GeekUserModelSerializer
+
+    def get_serializer_class(self):
+        if self.request.version == '0.2':
+            return GeekUserModelSerializerV02
+        return GeekUserModelSerializer

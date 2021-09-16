@@ -5,3 +5,4 @@ Markdown==3.3.4
 django-cors-headers==3.8.0
 djangorestframework-simplejwt==4.8.0
 mixer==7.1.2
+drf-yasg==1.20.0
