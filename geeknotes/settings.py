@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'drf_yasg',
+    'graphene_django',
     'usersapp',
     'notesapp',
 ]
@@ -176,4 +177,10 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+}
+
+# GraphQL settings
+
+GRAPHENE = {
+    'SCHEMA': 'geeknotes.schema.schema',
 }
