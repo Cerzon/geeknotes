@@ -6,6 +6,7 @@ class GeekUserModelSerializer(ModelSerializer):
     class Meta:
         model = GeekUser
         fields = (
+            'id',
             'username',
             'email',
             'first_name',
@@ -17,6 +18,7 @@ class GeekUserModelSerializerV02(ModelSerializer):
     class Meta:
         model = GeekUser
         fields = (
+            'id',
             'username',
             'email',
             'first_name',

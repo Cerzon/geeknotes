@@ -12,7 +12,7 @@ const NoteAuthor = ({ author }) => {
 }
 
 
-const NoteItem = ({ item, project }) => {
+const NoteItem = ({ item, project, deleteNote }) => {
     return (
         <tr>
             <td><Link to={ `/projects/${item.project}/` } >{ project.name }</Link></td>
@@ -21,12 +21,13 @@ const NoteItem = ({ item, project }) => {
             <td>{ item.updated }</td>
             <td>{ item.is_active ? <Active/> : <Closed/> }</td>
             <td>{ item.body }</td>
+            <td><button onClick={() => deleteNote(item.id)}>Delete</button></td>
         </tr>
     )
 }
 
 
-const NoteList = ({ notes, projects }) => {
+const NoteList = ({ notes, projects, deleteNote }) => {
     return (
         notes.length
         ? <table>
@@ -38,6 +39,7 @@ const NoteList = ({ notes, projects }) => {
                     <th>Updated</th>
                     <th>Is Active</th>
                     <th>Text</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -46,9 +48,15 @@ const NoteList = ({ notes, projects }) => {
                         key={ note.id }
                         item={ note }
                         project={ projects.find( el => el.id === note.project ) }
+                        deleteNote={ deleteNote }
                     /> ) 
                 }
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan="7"><Link to="/notes/add/">Add new note</Link></td>
+                </tr>
+            </tfoot>
         </table>
         : <h2>no data</h2>
     )
